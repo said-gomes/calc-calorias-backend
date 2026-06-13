@@ -974,3 +974,139 @@ clj꞉backend.db꞉> 
 
 
 clj꞉backend.db꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+(def chave-api-cal (System/getenv "API-CAL-KEY"))
+(def chave-api-food (System/getenv "API-FOOD-KEY"))
+
+(def url-api-food "https://api.api-ninjas.com/v1/caloriesburned")
+
+(def url-api-cal "https://api.api-ninjas.com/v1/caloriesburned")
+
+
+
+
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+(def chave-api-cal (System/getenv "API-CAL-KEY"))
+(def chave-api-food (System/getenv "API-FOOD-KEY"))
+
+(def url-api-food "https://api.api-ninjas.com/v1/caloriesburned")
+
+(def url-api-cal "https://api.api-ninjas.com/v1/caloriesburned")
+
+(print chave-api-cal)
+
+
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+(def chave-api-cal (System/getenv "API_CAL_KEY"))
+(def chave-api-food (System/getenv "API_FOOD_KEY"))
+
+(def url-api-food "https://api.api-ninjas.com/v1/caloriesburned")
+
+(def url-api-cal "https://api.api-ninjas.com/v1/caloriesburned")
+
+(print chave-api-cal)
+
+
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+(def chave-api-cal (System/getenv "API_CAL_KEY"))
+(def chave-api-food (System/getenv "API_FOOD_KEY"))
+
+(def url-api-food "https://api.api-ninjas.com/v1/caloriesburned")
+
+(def url-api-cal "https://api.api-ninjas.com/v1/caloriesburned")
+
+(print chave-api-cal)
+
+
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+(def chave-api-cal (System/getenv "API_CAL_KEY"))
+(def chave-api-food (System/getenv "API_FOOD_KEY"))
+
+(def url-api-food "https://api.api-ninjas.com/v1/caloriesburned")
+
+(def url-api-cal "https://api.api-ninjas.com/v1/caloriesburned")
+
+(print chave-api-cal)
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+(def chave-api-cal (System/getenv "API_CAL_KEY"))
+(def chave-api-food (System/getenv "API_FOOD_KEY"))
+
+(def url-api-food "https://api.api-ninjas.com/v1/caloriesburned")
+
+(def url-api-cal "https://api.api-ninjas.com/v1/caloriesburned")
+
+(print chave-api-cal)
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [clojure.edn]))
+
+(def config (clojure.edn/read-string (slurp "config.edn")))
+
+(def chave-api-cal (:api-cal-key config))
+(def chave-api-food (:api-food-key config))
+
+(def url-api-food "https://api.api-ninjas.com/v1/caloriesburned")
+
+(def url-api-cal "https://api.api-ninjas.com/v1/caloriesburned")
+
+(print chave-api-cal)
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [clojure.edn]))
+
+; CONFIGURACOES
+(def config (clojure.edn/read-string (slurp "config.edn")))
+(def chave-api-cal (:api-cal-key config))
+(def chave-api-food (:api-food-key config))
+(def url-food (:url-api-cal config))
+(def url-cal (:url-api-cal config))
+
+(print chave-api-cal)
+(print chave-api-food)
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [clojure.edn]))
+
+; CONFIGURACOES
+(def config (clojure.edn/read-string (slurp "config.edn")))
+(def chave-api-cal (:api-cal-key config))
+(def chave-api-food (:api-food-key config))
+(def url-food (:url-api-cal config))
+(def url-cal (:url-api-cal config))
+
+(print chave-api-cal)
+
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [clojure.edn]))
+
+; CONFIGURACOES
+(def config (clojure.edn/read-string (slurp "config.edn")))
+(def chave-api-cal (:api-cal-key config))
+(def chave-api-food (:api-food-key config))
+(def url-food (:url-api-cal config))
+(def url-cal (:url-api-cal config))
+
+(print chave-api-food)
+clj꞉backend.request꞉> 

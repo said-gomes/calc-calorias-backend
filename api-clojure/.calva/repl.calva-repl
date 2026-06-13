@@ -1,0 +1,976 @@
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉user꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+(ns api-clojure.request
+  (:require [clj-http.client :as client]))
+
+(client/get "https://pokeapi.co/api/v2/pokemon/ditto")
+
+
+clj꞉api-clojure.request꞉> 
+(client/get api-url)
+; Syntax error compiling at (request.clj:8:1).
+; Unable to resolve symbol: api-url in this context
+clj꞉api-clojure.request꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+(ns api-clojure.request
+  (:require [clj-http.client :as client]))
+
+(def api-url "https://pokeapi.co/api/v2/pokemon/ditto")
+
+(client/get api-url)
+
+
+clj꞉api-clojure.request꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉user꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [cheshire.core :refer [parse-string]]))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+(client/get api-url)
+
+
+; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
+; clj-http: status 400
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [cheshire.core :refer [parse-string]]))
+
+(def chave (System/getenv "CHAVE_API"))
+
+(println chave)
+
+clj꞉backend.request꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [cheshire.core :refer [parse-string]]))
+
+(def chave (System/getenv "CHAVE_API"))
+
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+(client/get api-url)
+
+
+; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
+; clj-http: status 400
+clj꞉backend.request꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [cheshire.core :refer [parse-string]]))
+
+(def chave (System/getenv "CHAVE_API"))
+
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+(client/get api-url
+                 {:query-params {"q" api-url
+                                 "apiKey" chave}})
+
+
+
+; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
+; clj-http: status 400
+clj꞉backend.request꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [cheshire.core :refer [parse-string]]))
+
+(def chave (System/getenv "CHAVE_API"))
+
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned?activity=running&weight=70&duration=30")
+
+
+(client/get api-url
+                 {:query-params {"q" api-url
+                                 "x-api-key" chave}})
+
+
+
+; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
+; clj-http: status 400
+clj꞉backend.request꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [cheshire.core :refer [parse-string]]))
+
+(def chave (System/getenv "CHAVE_API"))
+
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned?activity=running&weight=70&duration=30")
+
+
+(client/get api-url
+                 {:query-params {"q" api-url
+                                 "x-api-key" chave}})
+
+
+
+; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
+; clj-http: status 400
+clj꞉backend.request꞉> 
+(client/get api-url
+            {:query-params {"q" api-url
+                            "x-api-key" chave}})
+; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
+; clj-http: status 400
+clj꞉backend.request꞉> 
+(client/get api-url
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave}})
+; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
+; clj-http: status 400
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [cheshire.core :refer [parse-string]]
+            [clojure.edn :as edn]))
+
+(def config (edn/read-string (slurp ".edn")))
+
+(def chave (:api-key config))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+(client/get api-url
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave}})
+
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [cheshire.core :refer [parse-string]]
+            [clojure.edn :as edn]))
+
+(def config (edn/read-string (slurp ".edn")))
+
+(def chave (:ninja-api-key config))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+(client/get api-url
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave}})
+
+; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
+; clj-http: status 400
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [cheshire.core :refer [parse-string]]
+            [clojure.edn :as edn]))
+
+(def config (edn/read-string (slurp ".edn")))
+
+(def chave (:ninja-api-key config))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+(client/get api-url
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave}})
+
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [cheshire.core :refer [parse-string]]
+            [clojure.edn :as edn]))
+
+(def config (edn/read-string (slurp ".edn")))
+
+(def chave (:ninja-api-key config))
+
+(def api-url (:ninja-api-url config))
+
+(client/get api-url
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave}})
+
+clj꞉backend.request꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉user꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [cheshire.core :refer [parse-string]]
+            [clojure.edn :as edn]))
+
+;TODO: perguntar se esse metodo ta ok
+(def config (edn/read-string (slurp ".edn")))
+
+(def chave (:calories-api-key config))
+
+(def api-url (:calories-api-url config))
+
+;TODO: func para passar argumentos p/ realizar queries
+(client/get api-url
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave}})
+
+
+clj꞉backend.request꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉user꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]
+            [clojure.edn :as edn]))
+
+;TODO: perguntar se esse metodo ta ok
+(def config (edn/read-string (slurp ".edn")))
+
+(def chave (:calories-api-key config))
+
+(def api-url (:calories-api-url config))
+
+;TODO: func para passar argumentos p/ realizar queries
+(client/get api-url
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave}})
+
+
+clj꞉backend.request꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉user꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+(ns backend.handler
+  (:require [compojure.core :refer :all]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World")
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+clj꞉backend.handler꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉user꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;;;; rezando para funcionar
+(client/get api-url
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave}})
+
+
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;;;; rezando para funcionar
+(client/get api-url
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave}})
+
+
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉user꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;;;; rezando para funcionar
+(client/get api-url
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave}})
+
+
+; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
+; clj-http: status 400
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;;;; rezando para funcionar
+(client/get api-url
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave}})
+
+
+; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
+; clj-http: status 400
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;;;; rezando para funcionar
+(client/get api-url
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave}})
+
+(println  (System/getenv "CHAVE_API_CAL") )
+
+; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
+; clj-http: status 400
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+(println  (System/getenv "CHAVE_API_CAL") )
+
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+(println chave)
+(println api-url)
+
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+(doall (println chave))
+(println api-url)
+
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+(doall (println chave))
+(println api-url)
+
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+(doall (println chave))
+(println api-url)
+
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+(doall (println chave))
+(println api-url)
+
+clj꞉backend.request꞉> 
+(doall (println chave))
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+(doall (println chave))
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+(doall (println chave))
+()
+clj꞉backend.request꞉> 
+(doall (println chave))
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+(doall (println chave))
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+(do (println api-url))
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+((println api-url))
+; Execution error (NullPointerException) at backend.request/eval14147 (request.clj:17).
+; Cannot invoke "clojure.lang.IFn.invoke()" because the return value of "clojure.lang.IFn.invoke(Object)" is null
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+
+
+(println api-url)
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+
+
+(println chave)
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+
+
+(println chave)
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+
+
+(println chave)
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+
+
+(println chave)
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+;; ;;;; rezando para funcionar
+;; (client/get api-url
+;;             {:query-params {"activity" "running"
+;;                             "weight"   70
+;;                             "duration" 30}
+;;              :headers      {"X-Api-Key" chave}})
+
+
+
+(println chave)
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+(client/get api-url
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave}})
+
+
+; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
+; clj-http: status 400
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave (System/getenv "CHAVE_API_CAL"))
+
+(def api-url "https://api.api-ninjas.com/v1/caloriesburned")
+
+(client/get api-url
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave}})
+
+
+; Execution error (ExceptionInfo) at slingshot.support/stack-trace (support.clj:201).
+; clj-http: status 400
+clj꞉backend.request꞉> 
+(ns backend.request
+  (:require [clj-http.client :as client]))
+
+;TODO: perguntar se esse metodo ta ok
+
+(def chave-api-cal "2XY5KmcHbrtD6mBdkRp3Es9KHMmFiiHifvQnOArh")
+
+(def url-api-cal "https://api.api-ninjas.com/v1/caloriesburned")
+
+(client/get url-api-cal
+            {:query-params {"activity" "running"
+                            "weight"   70
+                            "duration" 30}
+             :headers      {"X-Api-Key" chave-api-cal}})
+
+
+clj꞉backend.request꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉user꞉> 
+(ns backend.db)
+
+(def db-atom (atom {:usuario nil :transacoes '()}))
+
+
+(swap! db-atom :usuario 'novo-usuario')
+
+(print db-atom)
+clj꞉backend.db꞉> 
+(ns backend.db)
+
+(def db-atom (atom {:usuario nil :transacoes '()}))
+
+
+(swap! db-atom :usuario "novo-user")
+
+(print db-atom)
+clj꞉backend.db꞉> 
+(ns backend.db)
+
+(def db-atom (atom {:usuario nil :transacoes '()}))
+
+(def novo-usuario '())
+
+(swap! db-atom :usuario novo-usuario)
+
+(print db-atom)
+clj꞉backend.db꞉> 
+(ns backend.db)
+
+(def db-atom (atom {:usuario nil :transacoes '()}))
+
+(defn salvar-usuario! [db user]
+  (swap! db assoc :usuario user))
+
+(salvar-usuario! db-atom "novo-usuario")
+
+(print db-atom)
+clj꞉backend.db꞉> 
+(ns backend.db)
+
+(def db-atom (atom {:usuario nil :transacoes '()}))
+
+(defn salvar-registro! [db parametro chave]
+  (swap! db assoc parametro chave))
+
+(salvar-registro! db-atom :usuario "novo-usuario")
+
+(print db-atom)
+clj꞉backend.db꞉> 
+(ns backend.db)
+
+(def db-atom (atom {:usuario nil :transacoes '()}))
+
+(defn salvar-registro! [chave valor]
+  (swap! db-atom assoc chave valor))
+
+(print db-atom)
+clj꞉backend.db꞉> 
+(ns backend.db)
+
+(def db-atom (atom {:usuario nil :transacoes '()}))
+
+;; Registrar os dados do usuário;
+;; Registrar o consumo de um determinado alimento;
+;; Registrar a realização de um determinado exercício físico;
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+
+(defn cadastrar-usuario! [informacoes]
+  (swap! db-atom assoc :usuario informacoes))
+
+
+(cadastrar-usuario!  {:altura 175, :peso 70, :idade 25, :sexo "M"})
+
+(print db-atom)
+
+clj꞉backend.db꞉> 
+(ns backend.db)
+
+(def db-atom (atom {:usuario nil :transacoes '()}))
+
+;; Registrar os dados do usuário; 
+;; Registrar o consumo de um determinado alimento;
+;; Registrar a realização de um determinado exercício físico;
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+
+;; {:usuario    {:altura 175, :peso 70, :idade 25, :sexo "M"}
+;;  :transacoes ({:tipo "alimento", :nome "arroz", :data "2026-06-12", :calorias 200}
+;;               {:tipo "exercicio", :nome "corrida", :data "2026-06-12", :calorias 300})}
+
+(defn cadastrar-usuario! [informacoes]
+  (swap! db-atom assoc :usuario informacoes))
+
+(defn cadastrar-alimentacao [informacoes]
+  (swap! db-atom conj :transacoes informacoes))
+
+(cadastrar-alimentacao {:tipo "alimento", :nome "arroz", :data "2026-06-12", :calorias 200})
+
+(print db-atom)
+; Execution error (IllegalArgumentException) at backend.db/cadastrar-alimentacao (db.clj:20).
+; Don't know how to create ISeq from: clojure.lang.Keyword
+clj꞉backend.db꞉> 
+(ns backend.db)
+
+(def db-atom (atom {:usuario nil :transacoes '()}))
+
+;; Registrar os dados do usuário; 
+;; Registrar o consumo de um determinado alimento;
+;; Registrar a realização de um determinado exercício físico;
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+
+;; {:usuario    {:altura 175, :peso 70, :idade 25, :sexo "M"}
+;;  :transacoes ({:tipo "alimento", :nome "arroz", :data "2026-06-12", :calorias 200}
+;;               {:tipo "exercicio", :nome "corrida", :data "2026-06-12", :calorias 300})}
+
+(defn cadastrar-usuario! [informacoes]
+  (swap! db-atom assoc :usuario informacoes))
+
+(defn cadastrar-alimentacao [informacoes]
+  (swap! db-atom conj :transacoes informacoes))
+
+(cadastrar-alimentacao {:tipo "alimento", :nome "arroz", :data "2026-06-12", :calorias 200})
+; Execution error (IllegalArgumentException) at backend.db/cadastrar-alimentacao (db.clj:20).
+; Don't know how to create ISeq from: clojure.lang.Keyword
+clj꞉backend.db꞉> 
+(ns backend.db)
+
+(def db-atom (atom {:usuario nil :transacoes '()}))
+
+;; Registrar os dados do usuário; 
+;; Registrar o consumo de um determinado alimento;
+;; Registrar a realização de um determinado exercício físico;
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+
+;; {:usuario    {:altura 175, :peso 70, :idade 25, :sexo "M"}
+;;  :transacoes ({:tipo "alimento", :nome "arroz", :data "2026-06-12", :calorias 200}
+;;               {:tipo "exercicio", :nome "corrida", :data "2026-06-12", :calorias 300})}
+
+(defn cadastrar-usuario! [informacoes]
+  (swap! db-atom assoc :usuario informacoes))
+
+(defn cadastrar-alimentacao [informacoes]
+  (swap! db-atom update conj :transacoes informacoes))
+
+(cadastrar-alimentacao {:tipo "alimento", :nome "arroz", :data "2026-06-12", :calorias 200})
+clj꞉backend.db꞉> 
+(ns backend.db)
+
+(def db-atom (atom {:usuario nil :transacoes '()}))
+
+;; Registrar os dados do usuário; 
+;; Registrar o consumo de um determinado alimento;
+;; Registrar a realização de um determinado exercício físico;
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+
+;; {:usuario    {:altura 175, :peso 70, :idade 25, :sexo "M"}
+;;  :transacoes ({:tipo "alimento", :nome "arroz", :data "2026-06-12", :calorias 200}
+;;               {:tipo "exercicio", :nome "corrida", :data "2026-06-12", :calorias 300})}
+
+(defn cadastrar-usuario! [informacoes]
+  (swap! db-atom assoc :usuario informacoes))
+
+(defn cadastrar-alimentacao [informacoes]
+  (swap! db-atom update :transacoes informacoes))
+
+(cadastrar-alimentacao {:tipo "alimento", :nome "arroz", :data "2026-06-12", :calorias 200})
+
+
+clj꞉backend.db꞉> 
+(ns backend.db)
+
+(def db-atom (atom {:usuario nil :transacoes '()}))
+
+;; Registrar os dados do usuário; 
+;; Registrar o consumo de um determinado alimento;
+;; Registrar a realização de um determinado exercício físico;
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+
+;; {:usuario    {:altura 175, :peso 70, :idade 25, :sexo "M"}
+;;  :transacoes ({:tipo "alimento", :nome "arroz", :data "2026-06-12", :calorias 200}
+;;               {:tipo "exercicio", :nome "corrida", :data "2026-06-12", :calorias 300})}
+
+(defn cadastrar-usuario! [informacoes]
+  (swap! db-atom assoc :usuario informacoes))
+
+(defn cadastrar-alimentacao [informacoes]
+  (swap! db-atom update :transacoes conj informacoes))
+
+(cadastrar-alimentacao {:tipo "alimento", :nome "arroz", :data "2026-06-12", :calorias 200})
+
+
+clj꞉backend.db꞉> 

@@ -1110,3 +1110,485 @@ clj꞉backend.request꞉> 
 
 (print chave-api-food)
 clj꞉backend.request꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+(ns backend.handler
+  (:require [backend.db :refer [buscar-transacoes]]
+            [cheshire.core :as json]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World") 
+  (GET "/saldo" [] (json/generate-string {:saldo 0}))
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+;; {:usuario    {:altura 175, :peso 70, :idade 25, :sexo "M"}
+;;  :transacoes ({:tipo "alimento", :nome "arroz", :data "2026-06-12", :calorias 200}
+;;               {:tipo "exercicio", :nome "corrida", :data "2026-06-12", :calorias 300})}
+
+(defn extrato-transacoes []
+  (let [transacoes (buscar-transacoes)
+        calorias-adquiridas (reduce + (map :calorias transacoes))]
+    (print calorias-adquiridas)
+    ))
+
+; Execution error (IllegalAccessError) at backend.handler/eval18269$loading (handler.clj:6).
+; buscar-transacoes does not exist
+; 
+; Syntax error compiling at (handler.clj:26:20).
+; Unable to resolve symbol: buscar-transacoes in this context
+clj꞉backend.handler꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+(ns backend.handler
+  (:require [backend.db :refer [buscar-transacoes!]]
+            [cheshire.core :as json]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World") 
+  (GET "/saldo" [] (json/generate-string {:saldo 0}))
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+;; {:usuario    {:altura 175, :peso 70, :idade 25, :sexo "M"}
+;;  :transacoes ({:tipo "alimento", :nome "arroz", :data "2026-06-12", :calorias 200}
+;;               {:tipo "exercicio", :nome "corrida", :data "2026-06-12", :calorias 300})}
+
+(defn extrato-transacoes []
+  (let [transacoes (buscar-transacoes!)
+        calorias-adquiridas (reduce + (map :calorias transacoes))]
+    (print calorias-adquiridas)
+    ))
+
+; Execution error (IllegalAccessError) at backend.handler/eval18279$loading (handler.clj:6).
+; buscar-transacoes! does not exist
+; 
+; Syntax error compiling at (handler.clj:26:20).
+; Unable to resolve symbol: buscar-transacoes! in this context
+clj꞉backend.handler꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+(ns backend.handler
+  (:require [backend.db :refer [buscar-transacoes!]]
+            [cheshire.core :as json]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World") 
+  (GET "/saldo" [] (json/generate-string {:saldo 0}))
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+(defn extrato-transacoes []
+  (let [transacoes (buscar-transacoes!)
+        calorias-adquiridas (reduce + (map :calorias transacoes))]
+    (print calorias-adquiridas)
+    ))
+
+; Execution error (IllegalAccessError) at backend.handler/eval18289$loading (handler.clj:6).
+; buscar-transacoes! does not exist
+; 
+; Syntax error compiling at (handler.clj:22:20).
+; Unable to resolve symbol: buscar-transacoes! in this context
+clj꞉backend.handler꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+(ns backend.handler
+  (:require [backend.db :refer [buscar-transacoes]]
+            [cheshire.core :as json]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World") 
+  (GET "/saldo" [] (json/generate-string {:saldo 0}))
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+(defn extrato-transacoes []
+  (let [transacoes (buscar-transacoes)
+        calorias-adquiridas (reduce + (map :calorias transacoes))]
+    (print calorias-adquiridas)
+    ))
+
+; Execution error (IllegalAccessError) at backend.handler/eval18299$loading (handler.clj:6).
+; buscar-transacoes does not exist
+; 
+; Syntax error compiling at (handler.clj:22:20).
+; Unable to resolve symbol: buscar-transacoes in this context
+clj꞉backend.handler꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉user꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+(ns backend.handler
+  (:require [backend.db :refer [buscar-transacoes]]
+            [cheshire.core :as json]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World") 
+  (GET "/saldo" [] (json/generate-string {:saldo 0}))
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+(defn extrato-transacoes []
+  (let [transacoes (buscar-transacoes)
+        calorias-adquiridas (reduce + (map :calorias transacoes))]
+    (print calorias-adquiridas)
+    ))
+
+clj꞉backend.handler꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+(ns backend.handler
+  (:require [backend.db :refer [buscar-transacoes cadastrar-registro!
+                                cadastrar-usuario!]]
+            [cheshire.core :as json]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World") 
+  (GET "/saldo" [] (json/generate-string {:saldo 0}))
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+(cadastrar-usuario! {:altura 175, :peso 70, :idade 25, :sexo "M"})
+(cadastrar-registro! {:tipo "alimento", :nome "arroz", :data "2026-06-12", :calorias 200})
+(cadastrar-registro! {:tipo "exercicio", :nome "corrida", :data "2026-06-12", :calorias 300})
+(cadastrar-registro! {:tipo "exercicio", :nome "dar a bunda", :data "2026-06-12", :calorias 600})
+
+
+
+
+(defn extrato-transacoes []
+  (let [transacoes (buscar-transacoes)
+        calorias-adquiridas (reduce + (map :calorias transacoes))]
+    (print calorias-adquiridas)
+    ))
+
+clj꞉backend.handler꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+(ns backend.handler
+  (:require [backend.db :refer [buscar-transacoes]]
+            [cheshire.core :as json]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World") 
+  (GET "/saldo" [] (json/generate-string {:saldo 0}))
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+
+(defn extrato-transacoes []
+  (let [transacoes (buscar-transacoes)
+        calorias-adquiridas (reduce + (map :calorias transacoes))]
+    (print calorias-adquiridas)
+    ))
+
+(extrato-transacoes)
+
+clj꞉backend.handler꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+(ns backend.handler
+  (:require [backend.db :refer [buscar-transacoes]]
+            [cheshire.core :as json]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World") 
+  (GET "/saldo" [] (json/generate-string {:saldo 0}))
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+
+(defn extrato-transacoes []
+  (let [transacoes (buscar-transacoes) 
+        calorias-filtradas (map :calorias transacoes)
+        calorias-adquiridas (reduce + (map :calorias transacoes))
+        ]
+    (print transacoes)
+    (print calorias-filtradas)
+    (print calorias-adquiridas)
+    ))
+
+(extrato-transacoes)
+
+clj꞉backend.handler꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+(ns backend.handler
+  (:require [backend.db :refer [buscar-transacoes]]
+            [cheshire.core :as json]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World") 
+  (GET "/saldo" [] (json/generate-string {:saldo 0}))
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+
+(defn extrato-transacoes []
+  (let [transacoes (buscar-transacoes) 
+        alimentos (filter #(:tipo %) "alimento") 
+        exercicio (filter #(:tipo %) "exercicio")
+        ;; calorias-adquiridas (reduce + (map :calorias transacoes)) 
+        ]
+    (print transacoes)
+    (print alimentos)
+    (print exercicio)
+    ))
+
+(extrato-transacoes)
+
+clj꞉backend.handler꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+(ns backend.handler
+  (:require [backend.db :refer [buscar-transacoes]]
+            [cheshire.core :as json]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World") 
+  (GET "/saldo" [] (json/generate-string {:saldo 0}))
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+
+(defn extrato-transacoes []
+  (let [transacoes (buscar-transacoes) 
+        alimentos (filter #(= (:tipo %) "alimento") transacoes) 
+        exercicio (filter #(= (:tipo %) "exercicio") transacoes) 
+        calorias-adquiridas (reduce + (map :calorias alimentos)) 
+        calorias-perdidas (reduce + (map :calorias exercicio)) 
+        
+        ]
+    (print calorias-adquiridas)
+    (print calorias-perdidas)
+    (print exercicio)
+    ))
+
+(extrato-transacoes)
+
+clj꞉backend.handler꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+(ns backend.handler
+  (:require [backend.db :refer [buscar-transacoes]]
+            [cheshire.core :as json]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World") 
+  (GET "/saldo" [] (json/generate-string {:saldo 0}))
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+
+(defn extrato-transacoes []
+  (let [transacoes (buscar-transacoes) 
+        alimentos (filter #(= (:tipo %) "alimento") transacoes) 
+        exercicio (filter #(= (:tipo %) "exercicio") transacoes) 
+        calorias-adquiridas (reduce + (map :calorias alimentos)) 
+        calorias-perdidas (reduce + (map :calorias exercicio)) 
+        
+        ]
+    (print calorias-adquiridas)
+    (print calorias-perdidas)
+    ))
+
+(extrato-transacoes)
+
+clj꞉backend.handler꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+(ns backend.handler
+  (:require [backend.db :refer [buscar-transacoes]]
+            [cheshire.core :as json]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World") 
+  (GET "/saldo" [] (json/generate-string {:saldo 0}))
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+
+(defn extrato-transacoes []
+  (let [transacoes (buscar-transacoes) 
+        alimentos (filter #(= (:tipo %) "alimento") transacoes) 
+        exercicio (filter #(= (:tipo %) "exercicio") transacoes) 
+        calorias-adquiridas (reduce + (map :calorias alimentos)) 
+        calorias-perdidas (reduce + (map :calorias exercicio)) 
+        
+        ]
+    (println calorias-adquiridas)
+    (println calorias-perdidas)
+    ))
+
+(extrato-transacoes)
+
+clj꞉backend.handler꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉user꞉> 
+;; PULA 10.2 E 11.1 SE QUISER
+
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+(ns backend.handler
+  (:require [backend.db :refer [buscar-transacoes]]
+            [cheshire.core :as json]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World") 
+  (GET "/saldo" [] (json/generate-string {:saldo 0}))
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+
+(defn extrato-transacoes []
+  (let [transacoes (buscar-transacoes) 
+        alimentos (filter #(= (:tipo %) "alimento") transacoes) 
+        exercicio (filter #(= (:tipo %) "exercicio") transacoes) 
+        calorias-adquiridas (reduce + (map :calorias alimentos)) 
+        calorias-perdidas (reduce + (map :calorias exercicio)) 
+        
+        ]
+    (println calorias-adquiridas)
+    (println calorias-perdidas)
+    ))
+
+(extrato-transacoes)
+
+;; PULA 10.2 E 11.1 SE QUISER
+
+;; Obter extrato de transações (ganho/perda de calorias);
+;; Obter o saldo de calorias.
+
+(ns backend.handler
+  (:require [backend.db :refer [buscar-transacoes]]
+            [cheshire.core :as json]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
+
+(defroutes app-routes
+  (GET "/" [] "Hello World") 
+  (GET "/saldo" [] (json/generate-string {:saldo 0}))
+  (route/not-found "Not Found"))
+
+(def app
+  (wrap-defaults app-routes site-defaults))
+
+
+(defn extrato-transacoes []
+  (let [transacoes (buscar-transacoes) 
+        alimentos (filter #(= (:tipo %) "alimento") transacoes) 
+        exercicio (filter #(= (:tipo %) "exercicio") transacoes) 
+        calorias-adquiridas (reduce + (map :calorias alimentos)) 
+        calorias-perdidas (reduce + (map :calorias exercicio)) 
+        
+        ]
+    (println calorias-adquiridas)
+    (println calorias-perdidas)
+    ))
+
+(extrato-transacoes)
+
+clj꞉backend.handler꞉> 

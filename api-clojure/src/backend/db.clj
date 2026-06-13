@@ -2,9 +2,9 @@
 
 (def db-atom (atom {:usuario nil :transacoes '()}))
 
-;; Registrar os dados do usuário; 
-;; Registrar o consumo de um determinado alimento;
-;; Registrar a realização de um determinado exercício físico;
+;; OK Registrar os dados do usuário; 
+;; OK Registrar o consumo de um determinado alimento;
+;; OK Registrar a realização de um determinado exercício físico;
 
 
 
@@ -18,4 +18,13 @@
 
 (defn cadastrar-registro! [informacoes]
   (swap! db-atom update :transacoes conj informacoes))
+
+(defn buscar-transacoes []
+  (:transacoes @db-atom))
+
+(cadastrar-usuario! {:altura 175, :peso 70, :idade 25, :sexo "M"})
+(cadastrar-registro! {:tipo "alimento", :nome "xilito", :data "2026-06-12", :calorias 200})
+(cadastrar-registro! {:tipo "exercicio", :nome "corrida", :data "2026-06-12", :calorias 300})
+(cadastrar-registro! {:tipo "exercicio", :nome "atividades-diversas-na-cama", :data "2026-06-12", :calorias 600})
+
 

@@ -9,4 +9,7 @@ pom.xml.asc
 /.lein-*
 /.nrepl-port
 /.edn
-
+.clj-kondo/.cache/
+.lsp/.cache/
+target/
+.calva/

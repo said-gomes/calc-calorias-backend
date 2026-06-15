@@ -1,5 +1,5 @@
 {:api-cal-key "2XY5KmcHbrtD6mBdkRp3Es9KHMmFiiHifvQnOArh"
  :api-food-key "iz8H40bOBA4JxUd1S6YWL0uxagxp5udJ21o9vpu8"
  :url-api-cal "https://api.api-ninjas.com/v1/caloriesburned"
- :url-api-food "https://api.nal.usda.gov/fdc/v1/foods/"
+ :url-api-food "https://api.nal.usda.gov/fdc/v1/foods/search"
  }

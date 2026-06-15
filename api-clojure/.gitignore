@@ -8,8 +8,10 @@ pom.xml.asc
 *.class
 /.lein-*
 /.nrepl-port
-/.edn
+.edn
 .clj-kondo/.cache/
 .lsp/.cache/
 target/
 .calva/
+..clj-kondo/.cache/
+..lsp/.cache/

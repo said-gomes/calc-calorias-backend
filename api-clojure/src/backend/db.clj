@@ -19,12 +19,20 @@
 (defn cadastrar-registro! [informacoes]
   (swap! db-atom update :transacoes conj informacoes))
 
+;;ESSAS FUNCOES REALMENTE PRECISAM DE ! NA NOTACAO?
 (defn buscar-transacoes []
   (:transacoes @db-atom))
 
-(cadastrar-usuario! {:altura 175, :peso 70, :idade 25, :sexo "M"})
-(cadastrar-registro! {:tipo "alimento", :nome "xilito", :data "2026-06-12", :calorias 200})
-(cadastrar-registro! {:tipo "exercicio", :nome "corrida", :data "2026-06-12", :calorias 300})
-(cadastrar-registro! {:tipo "exercicio", :nome "atividades-diversas-na-cama", :data "2026-06-12", :calorias 600})
+(defn buscar-usuario []
+  (:usuario @db-atom))
+
+;; MOCK DE DADOS
+
+;; (cadastrar-usuario! {:altura 175, :peso 70, :idade 25, :sexo "M"})
+;; (cadastrar-registro! {:tipo "alimento", :nome "xilito", :data "2026-06-12", :calorias 200})
+;; (cadastrar-registro! {:tipo "exercicio", :nome "corrida", :data "2026-06-12", :calorias 300})
+;; (cadastrar-registro! {:tipo "exercicio", :nome "atividades-diversas-na-cama", :data "2026-06-12", :calorias 600})
+;; (cadastrar-registro! {:tipo "exercicio", :nome "correr-de-ladrao", :data "2026-04-12", :calorias 100})
+;; (cadastrar-registro! {:tipo "alimento", :nome "10-chopps", :data "2026-04-12", :calorias 100})
 
 

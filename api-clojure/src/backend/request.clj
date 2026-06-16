@@ -44,8 +44,10 @@
     ))
 
 ;; CONSULTA API ALIMENTO
-(defn buscar-ganho-calorico [alimento]
-  (filtragem-dados-valor-cal (req-ganho-cal alimento)))
+;; A API RETORNA CALORIAS POR 100g, ENTAO AJUSTA PELA QUANTIDADE INFORMADA
+(defn buscar-ganho-calorico [alimento quantidade]
+  (let [cal-por-100g (filtragem-dados-valor-cal (req-ganho-cal alimento))]
+    (/ (* cal-por-100g quantidade) 100)))
 
 ;; 
 ;; (def lista-atv ["running", "walking",

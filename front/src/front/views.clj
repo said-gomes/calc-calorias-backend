@@ -102,9 +102,10 @@
     (exibir-usuario resp)))
 
 (defn cadastrar-alimento []
-  (let [nome (ler-linha "Nome do alimento: ")
-        data (ler-linha "Data (YYYY-MM-DD): ")]
-    (http/registrar-alimento nome data)
+  (let [nome       (ler-linha "Nome do alimento: ")
+        quantidade (Integer/parseInt (ler-linha "Quantidade (g): "))
+        data       (ler-linha "Data (YYYY-MM-DD): ")]
+    (http/registrar-alimento nome quantidade data)
     (println "Alimento registrado!")))
 
 ;; AJUSTA INDICE, JA Q A LISTA COMECA DO 0
@@ -140,3 +141,13 @@
     "6" (get-saldo)
     "0" (println "Até logo!")
     (println "Opção inválida.")))
+
+;; TESTES 
+;; (traduzir "running")
+;; (traduzir "soccer")
+
+
+;; (exibir-usuario {:nome "Said" :altura 175 :peso 70 :idade 25 :sexo "M"})
+;; (exibir-saldo {:calorias-adquiridas 182 :calorias 290})
+;; (exibir-extrato {:alimento [{:nome "rice" :data "2026-06-15" :calorias 182}]
+;;                  :exercicio [{:nome "running" :data "2026-06-15" :calorias 290}]})

@@ -4,7 +4,7 @@
   (:require [cheshire.core :as json]
             [clj-http.client :as client]))
 
-;; URL BASE DA APP
+;; URL BASE (VERIFICAR EM QUAL PORTA O SERVER ESTÁ RODANDO)
 (def url "http://localhost:3001")
 
 ;; {:nome "Said", :altura 175, :peso 70, :idade 25, :sexo "M"}
@@ -17,10 +17,10 @@
   (client/get (str url "/usuario")
               {:as :json}))
 
-;; {:tipo "alimento", :nome "arroz", :data "2026-06-15"}
-(defn registrar-alimento [nome data]
+;; {:tipo "alimento", :nome "arroz", :quantidade 100, :data "2026-06-15"}
+(defn registrar-alimento [nome quantidade data]
   (client/post (str url "/alimento")
-               {:body (json/generate-string {:tipo "alimento" :nome nome :data data})
+               {:body (json/generate-string {:tipo "alimento" :nome nome :quantidade quantidade :data data})
                 :content-type :json}))
 
 ;; {:tipo "exercicio", :nome "running", :duracao 30, :data "2026-06-15"}

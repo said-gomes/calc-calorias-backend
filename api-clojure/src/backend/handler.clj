@@ -41,8 +41,9 @@
   (let [mensagem (json/parse-string (slurp (:body mensagem)) true)
         tipo (:tipo mensagem)
         alimento (:nome mensagem)
+        quantidade (:quantidade mensagem)
         data (:data mensagem)
-        calorias (buscar-ganho-calorico alimento)
+        calorias (buscar-ganho-calorico alimento quantidade)
         payload {:tipo tipo, :nome alimento, :data data, :calorias calorias}]
     (cadastrar-registro! payload)))
 

@@ -5,7 +5,7 @@
             [clj-http.client :as client]))
 
 ;; URL BASE (VERIFICAR EM QUAL PORTA O SERVER ESTÁ RODANDO)
-(def url "http://localhost:3001")
+(def url "http://localhost:3002")
 
 ;; {:nome "Said", :altura 175, :peso 70, :idade 25, :sexo "M"}
 (defn cadastrar-usuario [nome altura peso idade sexo]

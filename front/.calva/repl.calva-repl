@@ -1,0 +1,40 @@
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉front.core꞉> 
+{:nome nome, :altura altura, :peso peso, :idade idade, :sexo sexo}
+; Syntax error compiling at (src/front/http.clj:0:0).
+; Unable to resolve symbol: nome in this context
+clj꞉front.http꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉front.core꞉> 
+;; PONTO DE ENTRADA DO FRONT-END
+;; ORQUESTRA O MENU E CHAMA AS VIEWS
+
+(ns front.core
+  (:gen-class)
+  (:require
+   [front.views :refer :all]))
+
+(defn -main [& args]
+  (loop []
+    (menu-principal)
+    (let [opcao (ler-linha "\nEscolha uma opção: ")]
+      (executar-opcao opcao)
+      (when (not= opcao "0")
+        (recur)))))
+
+clj꞉front.core꞉> 
+(ns front.core
+(:gen-class)
+(:require
+  [front.views :refer :all]))
+
+(defn -main [& args]
+(loop []
+  (menu-principal)
+  (let [opcao (ler-linha "\nEscolha uma opção: ")]
+    (executar-opcao opcao)
+    (when (not= opcao "0")
+      (recur)))))
+clj꞉front.core꞉> 
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉front.core꞉> 

@@ -27,7 +27,7 @@
 ;; {:tipo "exercicio", :nome "corrida", :data "2026-06-12", :calorias 200}
 
 (defn realizar-cadastro-exercicio [mensagem]
-  (let [mensagem (json/parse-string (:body mensagem) true)
+  (let [mensagem (json/parse-string (slurp (:body mensagem)) true)
         tipo (:tipo mensagem)
         exercicio (:nome mensagem)
         duracao (:duracao mensagem)
@@ -38,7 +38,7 @@
 
 
 (defn realizar-cadastro-alimento [mensagem]
-  (let [mensagem (json/parse-string (:body mensagem) true)
+  (let [mensagem (json/parse-string (slurp (:body mensagem)) true)
         tipo (:tipo mensagem)
         alimento (:nome mensagem)
         data (:data mensagem)
@@ -72,7 +72,7 @@
 (defroutes app-routes
   (GET "/" [] "Hello!")
 
-  (POST "/usuario" mensagem (let [usuario (json/parse-string (:body mensagem) true)]
+  (POST "/usuario" mensagem (let [usuario (json/parse-string (slurp (:body mensagem)) true)]
                               (cadastrar-usuario! usuario)))
 
   (GET "/usuario" [] (json/generate-string (buscar-usuario)))
@@ -95,5 +95,5 @@
 
 
 (def app
-  (wrap-defaults app-routes site-defaults))
+  (wrap-defaults app-routes (assoc-in site-defaults [:security :anti-forgery] false)))
   
